@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten
 from keras.utils import to_categorical
 
-#download mnist data and split into train and test sets
+
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 #plot the first image in the dataset
@@ -26,6 +26,7 @@ model.add(Conv2D(32, kernel_size=3, activation='relu'))
 model.add(Flatten())
 model.add(Dense(10, activation='softmax'))
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
 #train the model
 model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10)
 model.predict(X_test[:4])
